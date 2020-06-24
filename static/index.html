@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
+        <link rel="stylesheet" href="static/css/site.css" type="text/css" >
+        <link rel="stylesheet" href="static/css/codemirror.css" type="text/css" >
+        <script src="static/js/codemirror.js"></script>
+        <script src="static/js/searchcursor.js"></script>
+        <script src="static/js/jump-to-line.js"></script>
+        <script src="static/js/turtle.js"></script>
+        <script src="static/js/sparql.js"></script>
+        <title>SI-WG</title>
+    </head>
+    <body>
+        <div class="content">
+            <div>
+                <h3>Example 1</h3>
+            </div>
+            <div class="row between-xs">
+                <div class="col-md-6 col-xs-6 separated">
+                    <p>Highlighted ID: <span id="clicked_id"></span></p>
+                    <p>Label: <span id="id_label"></span></p>
+                </div>
+            </div>
+            <div class="row between-xs">
+                <div class="col-md-6 col-xs-6 separated">
+                    <object id="slide13" type="image/svg+xml" data="static/svg/slide13-transparent.svg"></object>
+                    <div class="img-overlay-wrap">
+                        <!--<img class="col-md-12" src="g36model-slide9.png"></img> -->
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-6 separated">
+                    <div class="row between-xs">
+                        <div class="col-xs-10 tb-separated">
+                            <textarea id="query" name="query">
+SELECT ?x WHERE {
+    ?x a <urn:ex:AirConnection>
+}
+                            </textarea>
+                            <br />
+                            <button id="doquery">Query</button>
+                        </div>
+                        <br />
+                        <div class="col-xs-12">
+                            <textarea id="turtlefile" name="turtlefile"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <hr />
+            <p>Built for SI-WG</p>
+        </div>
+        <script src="static/js/app.js"></script>
+    </body>
+</html>
+
+

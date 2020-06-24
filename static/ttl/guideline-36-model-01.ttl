@@ -1,0 +1,705 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s4syst: <https://saref.etsi.org/> .
+
+<urn:ex:00001> a s4syst:System,
+        <urn:ex:Outside> ;
+    rdfs:label "outside_air" ;
+    s4syst:connectsAt <urn:ex:00002>,
+        <urn:ex:00003>,
+        <urn:ex:00004> .
+
+<urn:ex:00002> a s4syst:ConnectionPoint,
+        <urn:ex:AirOut> ;
+    rdfs:label "outside_air.oa" ;
+    s4syst:connectedThrough <urn:ex:00009> ;
+    s4syst:connectionPointOf <urn:ex:00001> .
+
+<urn:ex:00003> a s4syst:ConnectionPoint,
+        <urn:ex:AirOut> ;
+    rdfs:label "outside_air.econ" ;
+    s4syst:connectedThrough <urn:ex:00019> ;
+    s4syst:connectionPointOf <urn:ex:00001> .
+
+<urn:ex:00004> a s4syst:ConnectionPoint,
+        <urn:ex:AirIn> ;
+    rdfs:label "outside_air.ea" ;
+    s4syst:connectedThrough <urn:ex:00113> ;
+    s4syst:connectionPointOf <urn:ex:00001> .
+
+<urn:ex:00005> a s4syst:System,
+        <urn:ex:Damper> ;
+    rdfs:label "min_oa_damper" ;
+    s4syst:connectsAt <urn:ex:00006>,
+        <urn:ex:00007>,
+        <urn:ex:00008> .
+
+<urn:ex:00006> a s4syst:ConnectionPoint,
+        <urn:ex:AirIn> ;
+    rdfs:label "min_oa_damper.ain" ;
+    s4syst:connectedThrough <urn:ex:00009> ;
+    s4syst:connectionPointOf <urn:ex:00005> .
+
+<urn:ex:00007> a s4syst:ConnectionPoint,
+        <urn:ex:AirOut> ;
+    rdfs:label "min_oa_damper.aout" ;
+    s4syst:connectedThrough <urn:ex:00014> ;
+    s4syst:connectionPointOf <urn:ex:00005> .
+
+<urn:ex:00008> a s4syst:ConnectionPoint,
+        <urn:ex:AnalogIn> ;
+    rdfs:label "min_oa_damper.pos" ;
+    s4syst:connectionPointOf <urn:ex:00005> .
+
+<urn:ex:00009> a s4syst:Connection,
+        <urn:ex:AirConnection> ;
+    s4syst:connectsSystemAt <urn:ex:00002>,
+        <urn:ex:00006> .
+
+<urn:ex:00010> a s4syst:System,
+        <urn:ex:AirFlowStation> ;
+    rdfs:label "outside_air_afms" ;
+    s4syst:connectsAt <urn:ex:00011>,
+        <urn:ex:00012>,
+        <urn:ex:00013> .
+
+<urn:ex:00011> a s4syst:ConnectionPoint,
+        <urn:ex:AirIn> ;
+    rdfs:label "outside_air_afms.ain" ;
+    s4syst:connectedThrough <urn:ex:00014> ;
+    s4syst:connectionPointOf <urn:ex:00010> .
+
+<urn:ex:00012> a s4syst:ConnectionPoint,
+        <urn:ex:AirOut> ;
+    rdfs:label "outside_air_afms.aout" ;
+    s4syst:connectedThrough <urn:ex:00020> ;
+    s4syst:connectionPointOf <urn:ex:00010> .
+
+<urn:ex:00013> a s4syst:ConnectionPoint,
+        <urn:ex:AnalogOut> ;
+    rdfs:label "outside_air_afms.flow" ;
+    s4syst:connectionPointOf <urn:ex:00010> .
+
+<urn:ex:00014> a s4syst:Connection,
+        <urn:ex:AirConnection> ;
+    s4syst:connectsSystemAt <urn:ex:00007>,
+        <urn:ex:00011> .
+
+<urn:ex:00015> a s4syst:System,
+        <urn:ex:Damper> ;
+    rdfs:label "economizer_oa_damper" ;
+    s4syst:connectsAt <urn:ex:00016>,
+        <urn:ex:00017>,
+        <urn:ex:00018> .
+
+<urn:ex:00016> a s4syst:ConnectionPoint,
+        <urn:ex:AirIn> ;
+    rdfs:label "economizer_oa_damper.ain" ;
+    s4syst:connectedThrough <urn:ex:00019> ;
+    s4syst:connectionPointOf <urn:ex:00015> .
+
+<urn:ex:00017> a s4syst:ConnectionPoint,
+        <urn:ex:AirOut> ;
+    rdfs:label "economizer_oa_damper.aout" ;
+    s4syst:connectedThrough <urn:ex:00020> ;
+    s4syst:connectionPointOf <urn:ex:00015> .
+
+<urn:ex:00018> a s4syst:ConnectionPoint,
+        <urn:ex:AnalogIn> ;
+    rdfs:label "economizer_oa_damper.pos" ;
+    s4syst:connectionPointOf <urn:ex:00015> .
+
+<urn:ex:00019> a s4syst:Connection,
+        <urn:ex:AirConnection> ;
+    s4syst:connectsSystemAt <urn:ex:00003>,
+        <urn:ex:00016> .
+
+<urn:ex:00020> a s4syst:Connection,
+        <urn:ex:AirConnection> ;
+    rdfs:label "mixed_air" .
+
+<urn:ex:00021> a s4syst:System,
+        <urn:ex:Damper> ;
+    rdfs:label "mixed_air_damper" ;
+    s4syst:connectsAt <urn:ex:00022>,
+        <urn:ex:00023>,
+        <urn:ex:00024> .
+
+<urn:ex:00022> a s4syst:ConnectionPoint,
+        <urn:ex:AirIn> ;
+    rdfs:label "mixed_air_damper.ain" ;
+    s4syst:connectedThrough <urn:ex:00020> ;
+    s4syst:connectionPointOf <urn:ex:00021> .
+
+<urn:ex:00023> a s4syst:ConnectionPoint,
+        <urn:ex:AirOut> ;
+    rdfs:label "mixed_air_damper.aout" ;
+    s4syst:connectedThrough <urn:ex:00035> ;
+    s4syst:connectionPointOf <urn:ex:00021> .
+
+<urn:ex:00024> a s4syst:ConnectionPoint,
+        <urn:ex:AnalogIn> ;
+    rdfs:label "mixed_air_damper.pos" ;
+    s4syst:connectionPointOf <urn:ex:00021> .
+
+<urn:ex:00025> a s4syst:System,
+        <urn:ex:HotWaterCoil2> ;
+    rdfs:label "hot_water_coil" ;
+    s4syst:connectsAt <urn:ex:00026>,
+        <urn:ex:00027>,
+        <urn:ex:00028>,
+        <urn:ex:00029> ;
+    s4syst:hasSubSystem <urn:ex:00030> .
+
+<urn:ex:00026> a s4syst:ConnectionPoint,
+        <urn:ex:AirIn> ;
+    rdfs:label "hot_water_coil.ain" ;
+    s4syst:connectedThrough <urn:ex:00035> ;
+    s4syst:connectionPointOf <urn:ex:00025> .
+
+<urn:ex:00027> a s4syst:ConnectionPoint,
+        <urn:ex:AirOut> ;
+    rdfs:label "hot_water_coil.aout" ;
+    s4syst:connectedThrough <urn:ex:00046> ;
+    s4syst:connectionPointOf <urn:ex:00025> .
+
+<urn:ex:00028> a s4syst:ConnectionPoint,
+        <urn:ex:HotWaterIn> ;
+    rdfs:label "hot_water_coil.hws" ;
+    s4syst:connectedThrough <urn:ex:00034> ;
+    s4syst:connectionPointOf <urn:ex:00025> .
+
+<urn:ex:00029> a s4syst:ConnectionPoint,
+        <urn:ex:HotWaterOut> ;
+    rdfs:label "hot_water_coil.hwr" ;
+    s4syst:connectionPointOf <urn:ex:00025> .
+
+<urn:ex:00030> a s4syst:System,
+        <urn:ex:HotWaterValve> ;
+    rdfs:label "hot_water_coil.hw_valve" ;
+    s4syst:connectsAt <urn:ex:00031>,
+        <urn:ex:00032>,
+        <urn:ex:00033> ;
+    s4syst:subSystemOf <urn:ex:00025> .
+
+<urn:ex:00031> a s4syst:ConnectionPoint,
+        <urn:ex:AnalogIn> ;
+    rdfs:label "hot_water_coil.hw_valve.pos" ;
+    s4syst:connectionPointOf <urn:ex:00030> .
+
+<urn:ex:00032> a s4syst:ConnectionPoint,
+        <urn:ex:HotWaterIn> ;
+    rdfs:label "hot_water_coil.hw_valve.hwin" ;
+    s4syst:connectionPointOf <urn:ex:00030> .
+
+<urn:ex:00033> a s4syst:ConnectionPoint,
+        <urn:ex:HotWaterOut> ;
+    rdfs:label "hot_water_coil.hw_valve.hwout" ;
+    s4syst:connectedThrough <urn:ex:00034> ;
+    s4syst:connectionPointOf <urn:ex:00030> .
+
+<urn:ex:00034> a s4syst:Connection,
+        <urn:ex:HotWaterConnection> ;
+    s4syst:connectsSystemAt <urn:ex:00028>,
+        <urn:ex:00033> .
+
+<urn:ex:00035> a s4syst:Connection,
+        <urn:ex:AirConnection> ;
+    s4syst:connectsSystemAt <urn:ex:00023>,
+        <urn:ex:00026> .
+
+<urn:ex:00036> a s4syst:System,
+        <urn:ex:ChilledWaterCoil2> ;
+    rdfs:label "chilled_water_coil" ;
+    s4syst:connectsAt <urn:ex:00037>,
+        <urn:ex:00038>,
+        <urn:ex:00039>,
+        <urn:ex:00040> ;
+    s4syst:hasSubSystem <urn:ex:00041> .
+
+<urn:ex:00037> a s4syst:ConnectionPoint,
+        <urn:ex:AirIn> ;
+    rdfs:label "chilled_water_coil.ain" ;
+    s4syst:connectedThrough <urn:ex:00046> ;
+    s4syst:connectionPointOf <urn:ex:00036> .
+
+<urn:ex:00038> a s4syst:ConnectionPoint,
+        <urn:ex:AirOut> ;
+    rdfs:label "chilled_water_coil.aout" ;
+    s4syst:connectedThrough <urn:ex:00050> ;
+    s4syst:connectionPointOf <urn:ex:00036> .
+
+<urn:ex:00039> a s4syst:ConnectionPoint,
+        <urn:ex:ChilledWaterIn> ;
+    rdfs:label "chilled_water_coil.cws" ;
+    s4syst:connectedThrough <urn:ex:00045> ;
+    s4syst:connectionPointOf <urn:ex:00036> .
+
+<urn:ex:00040> a s4syst:ConnectionPoint,
+        <urn:ex:ChilledWaterOut> ;
+    rdfs:label "chilled_water_coil.cwr" ;
+    s4syst:connectionPointOf <urn:ex:00036> .
+
+<urn:ex:00041> a s4syst:System,
+        <urn:ex:ChilledWaterValve> ;
+    rdfs:label "chilled_water_coil.cw_valve" ;
+    s4syst:connectsAt <urn:ex:00042>,
+        <urn:ex:00043>,
+        <urn:ex:00044> ;
+    s4syst:subSystemOf <urn:ex:00036> .
+
+<urn:ex:00042> a s4syst:ConnectionPoint,
+        <urn:ex:AnalogIn> ;
+    rdfs:label "chilled_water_coil.cw_valve.pos" ;
+    s4syst:connectionPointOf <urn:ex:00041> .
+
+<urn:ex:00043> a s4syst:ConnectionPoint,
+        <urn:ex:ChilledWaterIn> ;
+    rdfs:label "chilled_water_coil.cw_valve.cwin" ;
+    s4syst:connectionPointOf <urn:ex:00041> .
+
+<urn:ex:00044> a s4syst:ConnectionPoint,
+        <urn:ex:ChilledWaterOut> ;
+    rdfs:label "chilled_water_coil.cw_valve.cwout" ;
+    s4syst:connectedThrough <urn:ex:00045> ;
+    s4syst:connectionPointOf <urn:ex:00041> .
+
+<urn:ex:00045> a s4syst:Connection,
+        <urn:ex:ChilledWaterConnection> ;
+    s4syst:connectsSystemAt <urn:ex:00039>,
+        <urn:ex:00044> .
+
+<urn:ex:00046> a s4syst:Connection,
+        <urn:ex:AirConnection> ;
+    s4syst:connectsSystemAt <urn:ex:00027>,
+        <urn:ex:00037> .
+
+<urn:ex:00047> a s4syst:System,
+        <urn:ex:Fan> ;
+    rdfs:label "supply_fan" ;
+    s4syst:connectsAt <urn:ex:00048>,
+        <urn:ex:00049> .
+
+<urn:ex:00048> a s4syst:ConnectionPoint,
+        <urn:ex:AirIn> ;
+    rdfs:label "supply_fan.ain" ;
+    s4syst:connectedThrough <urn:ex:00050> ;
+    s4syst:connectionPointOf <urn:ex:00047> .
+
+<urn:ex:00049> a s4syst:ConnectionPoint,
+        <urn:ex:AirOut> ;
+    rdfs:label "supply_fan.aout" ;
+    s4syst:connectedThrough <urn:ex:00103> ;
+    s4syst:connectionPointOf <urn:ex:00047> .
+
+<urn:ex:00050> a s4syst:Connection,
+        <urn:ex:AirConnection> ;
+    s4syst:connectsSystemAt <urn:ex:00038>,
+        <urn:ex:00048> .
+
+<urn:ex:00051> a s4syst:System,
+        <urn:ex:Zone> ;
+    rdfs:label "zone_1" ;
+    s4syst:connectsAt <urn:ex:00052>,
+        <urn:ex:00053> .
+
+<urn:ex:00052> a s4syst:ConnectionPoint,
+        <urn:ex:AirIn> ;
+    rdfs:label "zone_1.sa" ;
+    s4syst:connectedThrough <urn:ex:00076> ;
+    s4syst:connectionPointOf <urn:ex:00051> .
+
+<urn:ex:00053> a s4syst:ConnectionPoint,
+        <urn:ex:AirOut> ;
+    rdfs:label "zone_1.ra" ;
+    s4syst:connectedThrough <urn:ex:00104> ;
+    s4syst:connectionPointOf <urn:ex:00051> .
+
+<urn:ex:00054> a s4syst:System,
+        <urn:ex:VAV2> ;
+    rdfs:label "vav_1" ;
+    s4syst:connectsAt <urn:ex:00055> ;
+    s4syst:hasSubSystem <urn:ex:00056>,
+        <urn:ex:00060>,
+        <urn:ex:00064>,
+        <urn:ex:00069> .
+
+<urn:ex:00055> a s4syst:ConnectionPoint,
+        <urn:ex:AnalogOut> ;
+    rdfs:label "vav_1.temp" ;
+    s4syst:connectionPointOf <urn:ex:00054> .
+
+<urn:ex:00056> a s4syst:System,
+        <urn:ex:AirFlowStation> ;
+    rdfs:label "vav_1.air_flow_station" ;
+    s4syst:connectsAt <urn:ex:00057>,
+        <urn:ex:00058>,
+        <urn:ex:00059> ;
+    s4syst:subSystemOf <urn:ex:00054> .
+
+<urn:ex:00057> a s4syst:ConnectionPoint,
+        <urn:ex:AirIn> ;
+    rdfs:label "vav_1.air_flow_station.ain" ;
+    s4syst:connectedThrough <urn:ex:00103> ;
+    s4syst:connectionPointOf <urn:ex:00056> .
+
+<urn:ex:00058> a s4syst:ConnectionPoint,
+        <urn:ex:AirOut> ;
+    rdfs:label "vav_1.air_flow_station.aout" ;
+    s4syst:connectedThrough <urn:ex:00073> ;
+    s4syst:connectionPointOf <urn:ex:00056> .
+
+<urn:ex:00059> a s4syst:ConnectionPoint,
+        <urn:ex:AnalogOut> ;
+    rdfs:label "vav_1.air_flow_station.flow" ;
+    s4syst:connectionPointOf <urn:ex:00056> .
+
+<urn:ex:00060> a s4syst:System,
+        <urn:ex:Damper> ;
+    rdfs:label "vav_1.damper" ;
+    s4syst:connectsAt <urn:ex:00061>,
+        <urn:ex:00062>,
+        <urn:ex:00063> ;
+    s4syst:subSystemOf <urn:ex:00054> .
+
+<urn:ex:00061> a s4syst:ConnectionPoint,
+        <urn:ex:AirIn> ;
+    rdfs:label "vav_1.damper.ain" ;
+    s4syst:connectedThrough <urn:ex:00073> ;
+    s4syst:connectionPointOf <urn:ex:00060> .
+
+<urn:ex:00062> a s4syst:ConnectionPoint,
+        <urn:ex:AirOut> ;
+    rdfs:label "vav_1.damper.aout" ;
+    s4syst:connectedThrough <urn:ex:00074> ;
+    s4syst:connectionPointOf <urn:ex:00060> .
+
+<urn:ex:00063> a s4syst:ConnectionPoint,
+        <urn:ex:AnalogIn> ;
+    rdfs:label "vav_1.damper.pos" ;
+    s4syst:connectionPointOf <urn:ex:00060> .
+
+<urn:ex:00064> a s4syst:System,
+        <urn:ex:HotWaterCoil> ;
+    rdfs:label "vav_1.hw_coil" ;
+    s4syst:connectsAt <urn:ex:00065>,
+        <urn:ex:00066>,
+        <urn:ex:00067>,
+        <urn:ex:00068> ;
+    s4syst:subSystemOf <urn:ex:00054> .
+
+<urn:ex:00065> a s4syst:ConnectionPoint,
+        <urn:ex:AirIn> ;
+    rdfs:label "vav_1.hw_coil.ain" ;
+    s4syst:connectedThrough <urn:ex:00074> ;
+    s4syst:connectionPointOf <urn:ex:00064> .
+
+<urn:ex:00066> a s4syst:ConnectionPoint,
+        <urn:ex:AirOut> ;
+    rdfs:label "vav_1.hw_coil.aout" ;
+    s4syst:connectedThrough <urn:ex:00076> ;
+    s4syst:connectionPointOf <urn:ex:00064> .
+
+<urn:ex:00067> a s4syst:ConnectionPoint,
+        <urn:ex:HotWaterIn> ;
+    rdfs:label "vav_1.hw_coil.hws" ;
+    s4syst:connectedThrough <urn:ex:00075> ;
+    s4syst:connectionPointOf <urn:ex:00064> .
+
+<urn:ex:00068> a s4syst:ConnectionPoint,
+        <urn:ex:HotWaterOut> ;
+    rdfs:label "vav_1.hw_coil.hwr" ;
+    s4syst:connectionPointOf <urn:ex:00064> .
+
+<urn:ex:00069> a s4syst:System,
+        <urn:ex:HotWaterValve> ;
+    rdfs:label "vav_1.hw_valve" ;
+    s4syst:connectsAt <urn:ex:00070>,
+        <urn:ex:00071>,
+        <urn:ex:00072> ;
+    s4syst:subSystemOf <urn:ex:00054> .
+
+<urn:ex:00070> a s4syst:ConnectionPoint,
+        <urn:ex:AnalogIn> ;
+    rdfs:label "vav_1.hw_valve.pos" ;
+    s4syst:connectionPointOf <urn:ex:00069> .
+
+<urn:ex:00071> a s4syst:ConnectionPoint,
+        <urn:ex:HotWaterIn> ;
+    rdfs:label "vav_1.hw_valve.hwin" ;
+    s4syst:connectionPointOf <urn:ex:00069> .
+
+<urn:ex:00072> a s4syst:ConnectionPoint,
+        <urn:ex:HotWaterOut> ;
+    rdfs:label "vav_1.hw_valve.hwout" ;
+    s4syst:connectedThrough <urn:ex:00075> ;
+    s4syst:connectionPointOf <urn:ex:00069> .
+
+<urn:ex:00073> a s4syst:Connection,
+        <urn:ex:AirConnection> ;
+    s4syst:connectsSystemAt <urn:ex:00058>,
+        <urn:ex:00061> .
+
+<urn:ex:00074> a s4syst:Connection,
+        <urn:ex:AirConnection> ;
+    s4syst:connectsSystemAt <urn:ex:00062>,
+        <urn:ex:00065> .
+
+<urn:ex:00075> a s4syst:Connection,
+        <urn:ex:HotWaterConnection> ;
+    s4syst:connectsSystemAt <urn:ex:00067>,
+        <urn:ex:00072> .
+
+<urn:ex:00076> a s4syst:Connection,
+        <urn:ex:AirConnection> ;
+    s4syst:connectsSystemAt <urn:ex:00052>,
+        <urn:ex:00066> .
+
+<urn:ex:00077> a s4syst:System,
+        <urn:ex:Zone> ;
+    rdfs:label "zone_2" ;
+    s4syst:connectsAt <urn:ex:00078>,
+        <urn:ex:00079> .
+
+<urn:ex:00078> a s4syst:ConnectionPoint,
+        <urn:ex:AirIn> ;
+    rdfs:label "zone_2.sa" ;
+    s4syst:connectedThrough <urn:ex:00102> ;
+    s4syst:connectionPointOf <urn:ex:00077> .
+
+<urn:ex:00079> a s4syst:ConnectionPoint,
+        <urn:ex:AirOut> ;
+    rdfs:label "zone_2.ra" ;
+    s4syst:connectedThrough <urn:ex:00104> ;
+    s4syst:connectionPointOf <urn:ex:00077> .
+
+<urn:ex:00080> a s4syst:System,
+        <urn:ex:VAV2> ;
+    rdfs:label "vav_2" ;
+    s4syst:connectsAt <urn:ex:00081> ;
+    s4syst:hasSubSystem <urn:ex:00082>,
+        <urn:ex:00086>,
+        <urn:ex:00090>,
+        <urn:ex:00095> .
+
+<urn:ex:00081> a s4syst:ConnectionPoint,
+        <urn:ex:AnalogOut> ;
+    rdfs:label "vav_2.temp" ;
+    s4syst:connectionPointOf <urn:ex:00080> .
+
+<urn:ex:00082> a s4syst:System,
+        <urn:ex:AirFlowStation> ;
+    rdfs:label "vav_2.air_flow_station" ;
+    s4syst:connectsAt <urn:ex:00083>,
+        <urn:ex:00084>,
+        <urn:ex:00085> ;
+    s4syst:subSystemOf <urn:ex:00080> .
+
+<urn:ex:00083> a s4syst:ConnectionPoint,
+        <urn:ex:AirIn> ;
+    rdfs:label "vav_2.air_flow_station.ain" ;
+    s4syst:connectedThrough <urn:ex:00103> ;
+    s4syst:connectionPointOf <urn:ex:00082> .
+
+<urn:ex:00084> a s4syst:ConnectionPoint,
+        <urn:ex:AirOut> ;
+    rdfs:label "vav_2.air_flow_station.aout" ;
+    s4syst:connectedThrough <urn:ex:00099> ;
+    s4syst:connectionPointOf <urn:ex:00082> .
+
+<urn:ex:00085> a s4syst:ConnectionPoint,
+        <urn:ex:AnalogOut> ;
+    rdfs:label "vav_2.air_flow_station.flow" ;
+    s4syst:connectionPointOf <urn:ex:00082> .
+
+<urn:ex:00086> a s4syst:System,
+        <urn:ex:Damper> ;
+    rdfs:label "vav_2.damper" ;
+    s4syst:connectsAt <urn:ex:00087>,
+        <urn:ex:00088>,
+        <urn:ex:00089> ;
+    s4syst:subSystemOf <urn:ex:00080> .
+
+<urn:ex:00087> a s4syst:ConnectionPoint,
+        <urn:ex:AirIn> ;
+    rdfs:label "vav_2.damper.ain" ;
+    s4syst:connectedThrough <urn:ex:00099> ;
+    s4syst:connectionPointOf <urn:ex:00086> .
+
+<urn:ex:00088> a s4syst:ConnectionPoint,
+        <urn:ex:AirOut> ;
+    rdfs:label "vav_2.damper.aout" ;
+    s4syst:connectedThrough <urn:ex:00100> ;
+    s4syst:connectionPointOf <urn:ex:00086> .
+
+<urn:ex:00089> a s4syst:ConnectionPoint,
+        <urn:ex:AnalogIn> ;
+    rdfs:label "vav_2.damper.pos" ;
+    s4syst:connectionPointOf <urn:ex:00086> .
+
+<urn:ex:00090> a s4syst:System,
+        <urn:ex:HotWaterCoil> ;
+    rdfs:label "vav_2.hw_coil" ;
+    s4syst:connectsAt <urn:ex:00091>,
+        <urn:ex:00092>,
+        <urn:ex:00093>,
+        <urn:ex:00094> ;
+    s4syst:subSystemOf <urn:ex:00080> .
+
+<urn:ex:00091> a s4syst:ConnectionPoint,
+        <urn:ex:AirIn> ;
+    rdfs:label "vav_2.hw_coil.ain" ;
+    s4syst:connectedThrough <urn:ex:00100> ;
+    s4syst:connectionPointOf <urn:ex:00090> .
+
+<urn:ex:00092> a s4syst:ConnectionPoint,
+        <urn:ex:AirOut> ;
+    rdfs:label "vav_2.hw_coil.aout" ;
+    s4syst:connectedThrough <urn:ex:00102> ;
+    s4syst:connectionPointOf <urn:ex:00090> .
+
+<urn:ex:00093> a s4syst:ConnectionPoint,
+        <urn:ex:HotWaterIn> ;
+    rdfs:label "vav_2.hw_coil.hws" ;
+    s4syst:connectedThrough <urn:ex:00101> ;
+    s4syst:connectionPointOf <urn:ex:00090> .
+
+<urn:ex:00094> a s4syst:ConnectionPoint,
+        <urn:ex:HotWaterOut> ;
+    rdfs:label "vav_2.hw_coil.hwr" ;
+    s4syst:connectionPointOf <urn:ex:00090> .
+
+<urn:ex:00095> a s4syst:System,
+        <urn:ex:HotWaterValve> ;
+    rdfs:label "vav_2.hw_valve" ;
+    s4syst:connectsAt <urn:ex:00096>,
+        <urn:ex:00097>,
+        <urn:ex:00098> ;
+    s4syst:subSystemOf <urn:ex:00080> .
+
+<urn:ex:00096> a s4syst:ConnectionPoint,
+        <urn:ex:AnalogIn> ;
+    rdfs:label "vav_2.hw_valve.pos" ;
+    s4syst:connectionPointOf <urn:ex:00095> .
+
+<urn:ex:00097> a s4syst:ConnectionPoint,
+        <urn:ex:HotWaterIn> ;
+    rdfs:label "vav_2.hw_valve.hwin" ;
+    s4syst:connectionPointOf <urn:ex:00095> .
+
+<urn:ex:00098> a s4syst:ConnectionPoint,
+        <urn:ex:HotWaterOut> ;
+    rdfs:label "vav_2.hw_valve.hwout" ;
+    s4syst:connectedThrough <urn:ex:00101> ;
+    s4syst:connectionPointOf <urn:ex:00095> .
+
+<urn:ex:00099> a s4syst:Connection,
+        <urn:ex:AirConnection> ;
+    s4syst:connectsSystemAt <urn:ex:00084>,
+        <urn:ex:00087> .
+
+<urn:ex:00100> a s4syst:Connection,
+        <urn:ex:AirConnection> ;
+    s4syst:connectsSystemAt <urn:ex:00088>,
+        <urn:ex:00091> .
+
+<urn:ex:00101> a s4syst:Connection,
+        <urn:ex:HotWaterConnection> ;
+    s4syst:connectsSystemAt <urn:ex:00093>,
+        <urn:ex:00098> .
+
+<urn:ex:00102> a s4syst:Connection,
+        <urn:ex:AirConnection> ;
+    s4syst:connectsSystemAt <urn:ex:00078>,
+        <urn:ex:00092> .
+
+<urn:ex:00103> a s4syst:Connection,
+        <urn:ex:AirConnection> ;
+    rdfs:label "supply_air" ;
+    s4syst:connectsSystemAt <urn:ex:00049>,
+        <urn:ex:00057>,
+        <urn:ex:00083> .
+
+<urn:ex:00104> a s4syst:Connection,
+        <urn:ex:AirConnection> ;
+    rdfs:label "return_air" ;
+    s4syst:connectsSystemAt <urn:ex:00053>,
+        <urn:ex:00079>,
+        <urn:ex:00106> .
+
+<urn:ex:00105> a s4syst:System,
+        <urn:ex:Fan> ;
+    rdfs:label "return_fan" ;
+    s4syst:connectsAt <urn:ex:00106>,
+        <urn:ex:00107> .
+
+<urn:ex:00106> a s4syst:ConnectionPoint,
+        <urn:ex:AirIn> ;
+    rdfs:label "return_fan.ain" ;
+    s4syst:connectedThrough <urn:ex:00104> ;
+    s4syst:connectionPointOf <urn:ex:00105> .
+
+<urn:ex:00107> a s4syst:ConnectionPoint,
+        <urn:ex:AirOut> ;
+    rdfs:label "return_fan.aout" ;
+    s4syst:connectedThrough <urn:ex:00112> ;
+    s4syst:connectionPointOf <urn:ex:00105> .
+
+<urn:ex:00108> a s4syst:System,
+        <urn:ex:Damper> ;
+    rdfs:label "exhaust_air_damper" ;
+    s4syst:connectsAt <urn:ex:00109>,
+        <urn:ex:00110>,
+        <urn:ex:00111> .
+
+<urn:ex:00109> a s4syst:ConnectionPoint,
+        <urn:ex:AirIn> ;
+    rdfs:label "exhaust_air_damper.ain" ;
+    s4syst:connectedThrough <urn:ex:00112> ;
+    s4syst:connectionPointOf <urn:ex:00108> .
+
+<urn:ex:00110> a s4syst:ConnectionPoint,
+        <urn:ex:AirOut> ;
+    rdfs:label "exhaust_air_damper.aout" ;
+    s4syst:connectedThrough <urn:ex:00113> ;
+    s4syst:connectionPointOf <urn:ex:00108> .
+
+<urn:ex:00111> a s4syst:ConnectionPoint,
+        <urn:ex:AnalogIn> ;
+    rdfs:label "exhaust_air_damper.pos" ;
+    s4syst:connectionPointOf <urn:ex:00108> .
+
+<urn:ex:00112> a s4syst:Connection,
+        <urn:ex:AirConnection> ;
+    s4syst:connectsSystemAt <urn:ex:00107>,
+        <urn:ex:00109>,
+        <urn:ex:00115> .
+
+<urn:ex:00113> a s4syst:Connection,
+        <urn:ex:AirConnection> ;
+    s4syst:connectsSystemAt <urn:ex:00004>,
+        <urn:ex:00110> .
+
+<urn:ex:00114> a s4syst:System,
+        <urn:ex:Damper> ;
+    rdfs:label "return_air_damper" ;
+    s4syst:connectsAt <urn:ex:00115>,
+        <urn:ex:00116>,
+        <urn:ex:00117> .
+
+<urn:ex:00115> a s4syst:ConnectionPoint,
+        <urn:ex:AirIn> ;
+    rdfs:label "return_air_damper.ain" ;
+    s4syst:connectedThrough <urn:ex:00112> ;
+    s4syst:connectionPointOf <urn:ex:00114> .
+
+<urn:ex:00116> a s4syst:ConnectionPoint,
+        <urn:ex:AirOut> ;
+    rdfs:label "return_air_damper.aout" ;
+    s4syst:connectedThrough <urn:ex:00020> ;
+    s4syst:connectionPointOf <urn:ex:00114> .
+
+<urn:ex:00117> a s4syst:ConnectionPoint,
+        <urn:ex:AnalogIn> ;
+    rdfs:label "return_air_damper.pos" ;
+    s4syst:connectionPointOf <urn:ex:00114> .
+
